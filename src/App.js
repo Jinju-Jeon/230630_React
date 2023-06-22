@@ -1,6 +1,7 @@
 import {Container,Nav,Navbar,NavDropdown} from 'react-bootstrap';
 import { Route, Routes, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState } from 'react';
 
 // my
 import './App.css';
@@ -8,8 +9,21 @@ import './App.css';
 //components
 import Home from './pages/Home';
 import Product from './pages/Product';
+import List from './components/List';
+
+//data
+import diaryData from './data/diary';
+import notebookData from './data/notebook';
+import albumData from './data/album';
+import penData from './data/pen';
 
 function App() {
+  const [diary] = useState(diaryData)
+  const [notebook] = useState(notebookData)
+  const [album] = useState(albumData)
+  const [pen] = useState(penData)
+
+
   return (
     <>
     <Navbar bg="light" data-bs-theme="light">
@@ -27,10 +41,10 @@ function App() {
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='product/*' element={<Product/>}>
-        <Route path='diary' element={<>diary</>}></Route>
-        <Route path='notebook' element={<>notebook</>}></Route>
-        <Route path='album' element={<>album</>}></Route>
-        <Route path='pen' element={<>pen</>}></Route>
+        <Route path='diary' element={<List sublist={diary} />}></Route>
+        <Route path='notebook' element={<List sublist={notebook} />}></Route>
+        <Route path='album' element={<List sublist={album} />}></Route>
+        <Route path='pen' element={<List sublist={pen} />}></Route>
       </Route>
       <Route path='about' element={<div>About</div>}/>
       <Route path='cart' element={<div>Cart</div>}/>
