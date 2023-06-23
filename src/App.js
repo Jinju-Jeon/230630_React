@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 
 // my
-import './App.scss';
+
 
 //components
 import Home from './pages/Home';
@@ -31,7 +31,6 @@ function App() {
       <Container>
         <Navbar.Brand href="/">Iconic</Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="/product/diary">Product</Nav.Link>
           <Nav.Link href="/about">About</Nav.Link>
           <Nav.Link href="/cart">Cart</Nav.Link>
@@ -39,7 +38,6 @@ function App() {
       </Container>
     </Navbar>
 
-    <Container>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='product/' element={<Product/>}>
@@ -52,7 +50,6 @@ function App() {
         <Route path='about' element={<div>About</div>}/>
         <Route path='cart' element={<div>Cart</div>}/>
       </Routes>
-    </Container>
 
 
     </>

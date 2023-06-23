@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom';
-import {Button, ButtonGroup} from 'react-bootstrap';
+import {Button, ButtonGroup, Container} from 'react-bootstrap';
 import { Outlet } from 'react-router-dom'
 
 
 /* my */
 import './product.scss'
+
 
 export default function Product() {
   let category = '', chk=0
@@ -26,7 +27,7 @@ export default function Product() {
 
   return (
     <>
-      <div className='product_only'>
+      <Container>
         <div className='category'>{category}</div>
         <ButtonGroup aria-label="Basic example">
           <Link to='diary'><Button variant="secondary" className={chk===0 ? 'on' : ''}>Diary / Planner</Button></Link>
@@ -34,8 +35,8 @@ export default function Product() {
           <Link to='album'><Button variant="secondary" className={chk===2 ? 'on' : ''}>Album / RecordBook</Button></Link>
           <Link to='pen'><Button variant="secondary" className={chk===3 ? 'on' : ''}>Pen / PencilCase</Button></Link>
         </ButtonGroup>
-      </div>  
       <Outlet></Outlet>
+    </Container>  
         
     </>
   )
