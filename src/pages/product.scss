@@ -1,0 +1,34 @@
+
+
+.product_only{
+    max-width: 1200px;
+    padding: 0 10px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.category{
+    font-size: 40px;
+    font-weight: bold;
+    margin: 50px 0 30px;
+}
+
+.btn-group{
+    width: 100%;
+    margin: 0 auto 30px;
+
+    a:first-child .btn{border-radius: 10px 0 0 10px;}
+    a:last-child .btn{border-radius:  0 10px 10px 0;}
+
+    .btn{
+        border-radius: 0;
+        border: 1px solid #7D5A5A;
+        background-color: #fff;
+        color: #7D5A5A;        
+        
+        &.on{
+            background-color: #7D5A5A;
+            color: #fff;
+        }
+    }    
+}//btn_group
