@@ -10,11 +10,12 @@ import './App.css';
 import Home from './pages/Home';
 import Product from './pages/Product';
 import List from './components/List';
+import Detail from './pages/Detail';
 
 //data
 import diaryData from './data/diary';
 import notebookData from './data/notebook';
-import albumData from './data/album';
+import albumData from './data/album'
 import penData from './data/pen';
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
         <Route path='album' element={<List sublist={album} />}></Route>
         <Route path='pen' element={<List sublist={pen} />}></Route>
       </Route>
+      <Route path='/detail/:id' element={<Detail/>}></Route>
       <Route path='about' element={<div>About</div>}/>
       <Route path='cart' element={<div>Cart</div>}/>
     </Routes>
