@@ -22,7 +22,7 @@ export default function Product() {
     case 'pen': category='Pen / PencilCase'; chk=3;
       break;
 
-    default: '존재하지 않는 항목입니다.';chk=-1
+    default: category='존재하지 않는 항목입니다.';chk=-1
   }
 
   return (

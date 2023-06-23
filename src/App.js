@@ -18,11 +18,19 @@ import notebookData from './data/notebook';
 import albumData from './data/album'
 import penData from './data/pen';
 
+const allData = [
+  ...diaryData,
+  ...notebookData,
+  ...albumData,
+  ...penData
+]
+
 function App() {
   const [diary] = useState(diaryData)
   const [notebook] = useState(notebookData)
   const [album] = useState(albumData)
   const [pen] = useState(penData)
+  const [allItem] = useState(allData)
 
 
   return (
@@ -39,7 +47,7 @@ function App() {
     </Navbar>
 
       <Routes>
-        <Route path='/' element={<Home/>}/>
+        <Route path='/' element={<Home all={allItem}/>}/>
         <Route path='product/' element={<Product/>}>
           <Route path='diary' element={<List sublist={diary} />}></Route>
           <Route path='notebook' element={<List sublist={notebook} />}></Route>
