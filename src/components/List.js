@@ -1,12 +1,16 @@
 import React from 'react'
 import {Row, Col, Card, Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
 
 import './list.scss'
 
 
 export default function List(props) {
     const {sublist} = props
+    
 
   return (
       <Row>
@@ -16,13 +20,15 @@ export default function List(props) {
             <Link to={`/detail/${item.id}`} state={{product: item}}>
               <img src={item.img}></img>
               <div className='info'>
-                <p className='name'>{item.name}</p>
-                <p className='origin_price'>{item.originPrice}</p>
-                <p className='salePrice'>{item.salePrice}</p>
+                <Card.Title className='name'>{item.name}</Card.Title>
+                <p className='origin_price'>{item.originPrice.toLocaleString()}원</p>
+                <p className='sale_price'>{item.salePrice.toLocaleString()}원</p>
               </div>
             </Link>
-            <Button className='heart'>여기찜하기</Button>
-            <Button className='cart'>여기장바구니</Button>
+            <div className='button_list'>
+              <Button className='heart'><FontAwesomeIcon icon={faHeart} /></Button>
+              <Button className='cart'><FontAwesomeIcon icon={faCartArrowDown} /></Button>
+            </div>
             </Card>
             
           </Col>

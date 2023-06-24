@@ -14,7 +14,8 @@ import './home.scss'
 
 const H1 = styled.h1`
   font-weight: bold;
-  margin-top: 30px;
+  margin: 50px 0 20px;
+  font-size: 32px;
 `
 
 
