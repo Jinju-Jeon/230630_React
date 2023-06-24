@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 
 // my
+import './common.scss'
 
 
 //components

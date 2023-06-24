@@ -1,0 +1,36 @@
+@import url('../common.scss');
+
+.detail{
+    .name{
+        font-size: 28px;
+    }
+    
+    .origin_price{
+    text-decoration: line-through;
+    }
+    
+    
+
+    .quant{
+        display: flex;
+        input[type="number"]{
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;}
+
+                width: 60px;
+                text-align: center;
+
+                box-sizing: border-box;
+                border: none;
+
+                border-width: 1px 0;
+                border-color: #aaa;
+                border-style: solid;
+                padding: 0 10px;
+        }//number
+    }//quant
+
+
+}

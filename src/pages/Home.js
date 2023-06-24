@@ -12,11 +12,6 @@ import './home.scss'
 
 
 
-const H1 = styled.h1`
-  font-weight: bold;
-  margin: 50px 0 20px;
-  font-size: 32px;
-`
 
 
 
@@ -41,7 +36,7 @@ export default function Home(props) {
     <div className='home'>
       <ControlledCarousel />
       <Container>
-        <H1>Best Item</H1>
+        <h1 className='category'>Best Item</h1>
         <List sublist={best12}></List>
       </Container>
     </div>
