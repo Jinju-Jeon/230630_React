@@ -1,36 +1,69 @@
 @import url('../common.scss');
 
 .detail{
-    .name{
-        font-size: 28px;
+
+    .info_top{
+        margin-bottom: 10px;
+        .name{
+            font-size: 28px;
+        }
+        
+        .origin_price{
+        text-decoration: line-through;
+        }
+        
+        .quant{
+            display: flex;
+            input[type="number"]{
+                &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;}
+    
+                    width: 60px;
+                    text-align: center;
+    
+                    box-sizing: border-box;
+                    border: none;
+    
+                    border-width: 1px 0;
+                    border-color: #aaa;
+                    border-style: solid;
+                    padding: 0 10px;
+            }//number
+        }//quant
+    }//info_top
+
+
+
+    .info_bar{
+        position: sticky;
+        top: 0;
+
+        ul{
+            display: flex;
+            justify-content: center;
+            border: solid #333;
+            background-color: #fff;
+            border-width: 1px 0;
+           
+            li{
+                padding: 10px 15px;
+                font-size: 14px;
+                cursor: pointer;
+                color: #aaa;
+
+                &::before{
+                    content: "·";
+                    margin-right: 5px;
+                }
+
+                &.on{
+                    color: #333;
+                    font-weight: bold;
+                }
+            }
+        }
     }
-    
-    .origin_price{
-    text-decoration: line-through;
-    }
-    
-    
-
-    .quant{
-        display: flex;
-        input[type="number"]{
-            &::-webkit-outer-spin-button,
-            &::-webkit-inner-spin-button {
-                -webkit-appearance: none;
-                margin: 0;}
-
-                width: 60px;
-                text-align: center;
-
-                box-sizing: border-box;
-                border: none;
-
-                border-width: 1px 0;
-                border-color: #aaa;
-                border-style: solid;
-                padding: 0 10px;
-        }//number
-    }//quant
-
 
 }
