@@ -1,37 +1,94 @@
 @import url('../common.scss');
 
 .detail{
+    .li_tit{
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
 
     .info_top{
         margin-bottom: 10px;
+
+        .right{
+            box-sizing: border-box;
+            padding: 20px;
+
+            >div{margin-bottom: 50px;
+            &:last-child{margin-bottom: 0;}}
+        }
+
+        button.btn{
+            box-sizing: border-box;
+            padding: 0 20px;
+            height: 50px;
+        }
+
         .name{
             font-size: 28px;
         }
         
-        .origin_price{
-        text-decoration: line-through;
+
+        .price{
+            .origin_price{
+            text-decoration: line-through;
+            }
+
         }
+
+        .buy_action{
+            p.btn_title{font-size: 14px;}
         
-        .quant{
-            display: flex;
-            input[type="number"]{
-                &::-webkit-outer-spin-button,
-                &::-webkit-inner-spin-button {
-                    -webkit-appearance: none;
-                    margin: 0;}
-    
-                    width: 60px;
-                    text-align: center;
-    
-                    box-sizing: border-box;
-                    border: none;
-    
-                    border-width: 1px 0;
-                    border-color: #aaa;
-                    border-style: solid;
-                    padding: 0 10px;
-            }//number
-        }//quant
+            .quant{
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 20px;
+
+                input[type="number"]{
+                    &::-webkit-outer-spin-button,
+                    &::-webkit-inner-spin-button {
+                        -webkit-appearance: none;
+                        margin: 0;}
+        
+                        width: 60px;
+                        text-align: center;
+        
+                        box-sizing: border-box;
+                        border: none;
+        
+                        border-width: 1px 0;
+                        border-color: #aaa;
+                        border-style: solid;
+                        padding: 0 10px;
+                }//number
+
+                .btn_cover{display: flex;}
+            }//quant
+
+            .item_total{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+                >div{
+                    display: flex;
+                    align-items: center;
+
+                    .total_price{
+                        font-size: 24px;
+                        font-weight: bold;
+                        margin-right: 10px;
+                    }
+                }
+            }//subtotal
+
+            .add_btn{
+                display: flex;
+                justify-content: center;
+                button:first-child{
+                    margin-right: 30px;
+                }
+            }
+        }
     }//info_top
 
 
@@ -64,6 +121,14 @@
                 }
             }
         }
-    }
+    }//info_bar
 
-}
+    .mid_detail{
+        >div{
+            padding: 40px 0;
+            &:first-child{padding-top: 0;}
+        }
+    }
+    .purchase_info{}
+
+}//detail

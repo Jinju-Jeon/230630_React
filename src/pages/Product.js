@@ -28,7 +28,7 @@ export default function Product() {
   return (
     <>
       <Container>
-        <div className='category'>{category}</div>
+        <h1 className='category'>{category}</h1>
         <ButtonGroup aria-label="Basic example">
           <Link to='diary'><Button variant="secondary" className={chk===0 ? 'on' : ''}>Diary / Planner</Button></Link>
           <Link to='notebook'><Button variant="secondary"className={chk===1 ? 'on' : ''}>Notebook / Memo</Button></Link>
