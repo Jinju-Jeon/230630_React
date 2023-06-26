@@ -8,9 +8,12 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { useRef } from 'react';
 
+import { useDispatch, useSelector } from 'react-redux';
 
 /* my */
 import './detail.scss'
+
+
 const ButtonQt = styled.button`
   width: 30px;
   height: 30px;
@@ -21,13 +24,13 @@ const ButtonQt = styled.button`
 
 
 export default function Detail() {
-    const location = useLocation();
-    const item = location.state.product
+  const location = useLocation();
+  const item = location.state.product
 
-    const [quant, setQuant] = useState(1)
     
+    /* 구매 수량/총액 관리 */
+    const [quant, setQuant] = useState(1)
     const [itemprice, setPrice] = useState(item.salePrice)
-
     const priceChange = function(v){
       if(v<1){
         alert('상품은 1개 이상 구매 가능합니다.')
@@ -37,6 +40,14 @@ export default function Detail() {
       setPrice(v*item.salePrice)
     }
 
+    /* redux */
+    const state = useSelector(state=>state)
+    console.log(state)
+    const dispatch = useDispatch()
+    
+
+
+    
     //li_scroll
     const itemDetail = useRef()
     const purchaseInfo = useRef()
@@ -90,7 +101,9 @@ export default function Detail() {
                 <div className='add_btn'>
                   <Button>바로 구매</Button>
                   <Button><FontAwesomeIcon icon={faHeart} />찜하기</Button>
-                  <Button><FontAwesomeIcon icon={faCartArrowDown} />장바구니</Button>
+                  <Button><FontAwesomeIcon
+                    icon={faCartArrowDown}
+                  />장바구니</Button>
                 </div>
 
             </div>{/* //buy_action */}

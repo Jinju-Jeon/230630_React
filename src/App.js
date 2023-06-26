@@ -35,6 +35,7 @@ function App() {
   const [allItem] = useState(allData)
 
 
+
   return (
     <>
     <Navbar data-bs-theme="light">
