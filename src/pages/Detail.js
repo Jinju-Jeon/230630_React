@@ -9,6 +9,7 @@ import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { useRef } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
+import { addItem } from '../data/store';
 
 /* my */
 import './detail.scss'
@@ -42,7 +43,6 @@ export default function Detail() {
 
     /* redux */
     const state = useSelector(state=>state)
-    console.log(state)
     const dispatch = useDispatch()
     
 
@@ -101,9 +101,11 @@ export default function Detail() {
                 <div className='add_btn'>
                   <Button>바로 구매</Button>
                   <Button><FontAwesomeIcon icon={faHeart} />찜하기</Button>
-                  <Button><FontAwesomeIcon
-                    icon={faCartArrowDown}
-                  />장바구니</Button>
+                  <Button 
+                    onClick={()=>{dispatch(addItem({id: item.id, img: item.img, name: item.name, salePrice: item.salePrice, quant: quant}
+                    ))}}>
+                      <FontAwesomeIcon icon={faCartArrowDown}/>장바구니
+                  </Button>
                 </div>
 
             </div>{/* //buy_action */}

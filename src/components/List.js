@@ -18,7 +18,6 @@ export default function List(props) {
 
     const state = useSelector(state=>state)
     const dispatch = useDispatch()
-    console.log(state)
     
 
   return (
@@ -38,8 +37,7 @@ export default function List(props) {
               <Button className='heart'><FontAwesomeIcon icon={faHeart} /></Button>
               <Button className='cart'><FontAwesomeIcon icon={faCartArrowDown}
                 onClick={()=>{
-                  console.log('클릭했음')
-                  dispatch(addItem({id: item.id, img: item.img, name: item.name, salePrice: item.salePrice}))
+                  dispatch(addItem({id: item.id, img: item.img, name: item.name, salePrice: item.salePrice, quant: 1}))
                 }}
                /></Button>
             </div>

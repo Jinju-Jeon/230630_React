@@ -1,5 +1,5 @@
 import {Container,Nav,Navbar,NavDropdown} from 'react-bootstrap';
-import { Route, Routes, Link } from 'react-router-dom';
+import { Route, Routes, Link, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 
@@ -34,17 +34,19 @@ function App() {
   const [pen] = useState(penData)
   const [allItem] = useState(allData)
 
+  const navigate = useNavigate()
+
 
 
   return (
     <>
     <Navbar data-bs-theme="light">
       <Container>
-        <Navbar.Brand href="/">Iconic</Navbar.Brand>
+        <Navbar.Brand onClick={()=>{navigate("/")}}>Iconic</Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link href="/product/diary">Product</Nav.Link>
-          <Nav.Link href="/about">About</Nav.Link>
-          <Nav.Link href="/cart">Cart</Nav.Link>
+          <Nav.Link onClick={()=>navigate("/product/diary")}>Product</Nav.Link>
+          <Nav.Link onClick={()=>navigate("/about")}>About</Nav.Link>
+          <Nav.Link onClick={()=>navigate("/cart")}>Cart</Nav.Link>
         </Nav>
       </Container>
     </Navbar>
