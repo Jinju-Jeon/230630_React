@@ -12,15 +12,16 @@ html, button, .row{font-family: 'Noto Sans KR';color: #333;}
 li, ul, ol, a{list-style: none; color: inherit; text-decoration: none;}
 h1, h2, h3, h4, h5, h6{font-weight: normal; font-size: inherit;}
 .img{position: relative;}
-a{display: block;}
 img{display: block; width: 100%; height: auto;}
 button{background: none; border: none; display: block;}
-$mainC: #0E0057;
 
 h1{font-family: 'SUITE-Regular'; font-weight: bold;}
 
 .container{
     max-width: 1180px;
+
+    .row{width: 100%;}
+
 }
 
 nav{
@@ -31,7 +32,7 @@ nav{
     }
 
     .navbar-brand{
-        font-size: 28px;
+        font-size: 1.75rem;
         padding: 0; 
     }
 

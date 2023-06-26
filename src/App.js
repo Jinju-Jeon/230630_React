@@ -7,11 +7,12 @@ import { useState } from 'react';
 import './common.scss'
 
 
-//components
+//components & pages
 import Home from './pages/Home';
 import Product from './pages/Product';
 import List from './components/List';
 import Detail from './pages/Detail';
+import Cart from './pages/Cart';
 
 //data
 import diaryData from './data/diary';
@@ -57,7 +58,7 @@ function App() {
         </Route>
         <Route path='/detail/:id' element={<Detail/>}></Route>
         <Route path='about' element={<div>About</div>}/>
-        <Route path='cart' element={<div>Cart</div>}/>
+        <Route path='cart' element={<Cart />}/>
       </Routes>
 
 

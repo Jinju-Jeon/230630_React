@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { useRef } from 'react';
 
 
 /* my */
@@ -35,20 +36,31 @@ export default function Detail() {
       setQuant(v)
       setPrice(v*item.salePrice)
     }
+
+    //li_scroll
+    const itemDetail = useRef()
+    const purchaseInfo = useRef()
+    const review = useRef()
+    const qna = useRef()
+    const relative = useRef()
+
+    const scroll = (e)=>{
+      e.current.scrollIntoView()
+    }
     
 
   return (
     <>
     <Container className="detail">
         <Row className='info_top'>
-          <Col xs={12} md={6} lg={7}>
+          <Col xs={12} md={6} lg={5} className='left'>
             <img src={item.img}></img>
           </Col>        
           <Col xs={12} md={6} lg={5} className='right'>
             <h1 className='name'>{item.name}</h1>
             <div className='price'>
             <p className='origin_price'>{item.originPrice.toLocaleString()}</p>
-            <p>{item.salePrice.toLocaleString()}</p>
+            <p className='sale_price'>{item.salePrice.toLocaleString()}</p>
             </div>
 
             <div className='buy_action'>            
@@ -72,42 +84,42 @@ export default function Detail() {
                     <p className='btn_title'>총 상품 금액</p>
                   <div>
                     <p className='total_price'>{itemprice.toLocaleString()}원</p>
-                  <Button>구입하기</Button>
                   </div>
                 </div>
 
                 <div className='add_btn'>
+                  <Button>바로 구매</Button>
                   <Button><FontAwesomeIcon icon={faHeart} />찜하기</Button>
                   <Button><FontAwesomeIcon icon={faCartArrowDown} />장바구니</Button>
                 </div>
 
             </div>{/* //buy_action */}
-
-            
-            <div>
-              여기에 뭔가 이벤트 배너 같은 걸 넣나
-            </div>
           </Col>
         </Row>
 
-        <div className='info_mid'>
-          <Row className="info_bar">
-              <ul>
-                <li className='on'>상품 상세 정보</li>
-                <li>구매 정보</li>
-                <li>상품 후기</li>
-                <li>상품 문의</li>
-                <li>관련 상품</li>
-              </ul>
-          </Row>
-
-          <Row className='mid_detail'>
-            <Col xl={12}>
+          <Row className='info_bottom'>
+            <Col xl={12} className='item_detail' ref={itemDetail}>
+                <ul className='info_bar'>
+                  <li className='on' onClick={()=>{scroll(itemDetail)}}>상품 상세 정보</li>
+                  <li onClick={()=>{scroll(purchaseInfo)}}>구매 정보</li>
+                  <li onClick={()=>{scroll(review)}}>상품 후기</li>
+                  <li onClick={()=>{scroll(qna)}}>상품 문의</li>
+                  <li onClick={()=>{scroll(relative)}}>관련 상품</li>
+                </ul>
               <img src={process.env.PUBLIC_URL + '/images/detail/d1.jpg'}></img>
             </Col>
 
-            <Col xl={12} className='purchase_info'>
+            <Col xl={12} className='purchase_info' ref={purchaseInfo}>
+              <ul className="info_bar">
+                <li onClick={()=>{scroll(itemDetail)}}>상품 상세 정보</li>
+                <li onClick={()=>{scroll(purchaseInfo)}} className='on'>구매 정보</li>
+                <li onClick={()=>{scroll(review)}}>상품 후기</li>
+                <li onClick={()=>{scroll(qna)}}>상품 문의</li>
+                <li onClick={()=>{scroll(relative)}}>관련 상품</li>
+              </ul>
+
               <ul>
+                <h6 className='col_tit'>구매 정보</h6>
                 <li className='li_tit'>* 배송안내</li>
                 <li>배송방법 : 롯데택배,CJ대한통운 (그랜드바인더,클래시접착앨범)</li>
                 <li>배송비용 : 총 결제 금액이 30,000원 미만일 경우 3,000원이 추가됩니다.</li>
@@ -126,21 +138,48 @@ export default function Detail() {
               </ul>
             </Col>
 
-            <Col xl={12} >
-              리뷰/문의 자체는 fila거 참조해서 어떻게든 하기
+            <Col xl={12} className='review' ref={review}>
+              
+            <ul className="info_bar">
+                <li onClick={()=>{scroll(itemDetail)}}>상품 상세 정보</li>
+                <li onClick={()=>{scroll(purchaseInfo)}}>구매 정보</li>
+                <li onClick={()=>{scroll(review)}}  className='on'>상품 후기</li>
+                <li onClick={()=>{scroll(qna)}}>상품 문의</li>
+                <li onClick={()=>{scroll(relative)}}>관련 상품</li>
+              </ul>
+
+              <h6 className='col_tit'>상품 후기</h6>
             </Col>
 
-            <Col xl={12} >
-              어떻게든,,, 할 수 있다! 화이팅!
+            <Col xl={12} className='qna' ref={qna}>
+              
+            <ul className="info_bar">
+                <li onClick={()=>{scroll(itemDetail)}}>상품 상세 정보</li>
+                <li onClick={()=>{scroll(purchaseInfo)}}>구매 정보</li>
+                <li onClick={()=>{scroll(review)}}>상품 후기</li>
+                <li onClick={()=>{scroll(qna)}}  className='on'>상품 문의</li>
+                <li onClick={()=>{scroll(relative)}}>관련 상품</li>
+              </ul>
+
+              <h6 className='col_tit'>상품 문의</h6>
             </Col>
 
-            <Col xl={12} >
+            <Col xl={12} className='relative' ref={relative}>
+              
+            <ul className="info_bar">
+                <li onClick={()=>{scroll(itemDetail)}}>상품 상세 정보</li>
+                <li onClick={()=>{scroll(purchaseInfo)}}>구매 정보</li>
+                <li onClick={()=>{scroll(review)}}>상품 후기</li>
+                <li onClick={()=>{scroll(qna)}}>상품 문의</li>
+                <li onClick={()=>{scroll(relative)}}  className='on'>관련 상품</li>
+              </ul>
+
+              <h6 className='col_tit'>관련 상품</h6>
               이건 근처 아이디의 상품 보여주는 걸로? 
               배열상에서 -2 -1 +1 +2 하고 싶은데 가능하려나
             </Col>
           </Row>
 
-        </div> {/* ////info_mid */}
 
 
       </Container>
