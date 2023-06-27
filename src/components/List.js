@@ -8,7 +8,7 @@ import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { addItem } from '../data/store';
 import { useDispatch, useSelector } from 'react-redux';
 
-import './list.scss'
+import './components.scss'
 
 
 
@@ -21,11 +21,11 @@ export default function List(props) {
     
 
   return (
-      <Row>
-        {sublist.map((item,i)=>(
+      <Row className='list_js'>
+        {sublist.map((item,i,array)=>(
           <Col xs={6} md={4} lg={3} className='col' key={i}>
             <Card>
-            <Link to={`/detail/${item.id}`} state={{product: item}}>
+            <Link to={`/detail/${item.id}`} state={{product: item, array: array}}>
               <img src={item.img}></img>
               <div className='info'>
                 <Card.Title className='name'>{item.name}</Card.Title>

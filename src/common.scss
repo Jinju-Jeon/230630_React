@@ -8,6 +8,7 @@
 
 *, p, a{margin: 0; padding: 0; }
 html, button, .row{font-family: 'Noto Sans KR';color: #333;}
+body{overflow-y: scroll;}
 
 li, ul, ol, a{list-style: none; color: inherit; text-decoration: none;}
 h1, h2, h3, h4, h5, h6{font-weight: normal; font-size: inherit;}
@@ -19,8 +20,12 @@ h1{font-family: 'SUITE-Regular'; font-weight: bold;}
 
 .container{
     max-width: 1180px;
+    margin: 0 auto; padding: 0;
 
-    .row{width: 100%;}
+    .row{
+        width: 100%;
+        margin: 0 auto;
+    }
 
 }
 
@@ -34,6 +39,7 @@ nav{
     .navbar-brand{
         font-size: 1.75rem;
         padding: 0; 
+        cursor: pointer;
     }
 
 

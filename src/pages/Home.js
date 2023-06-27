@@ -8,7 +8,7 @@ import _ from 'lodash'
 
 /* my */
 import List from '../components/List'
-import './home.scss'
+import './page.scss'
 
 
 
@@ -33,7 +33,7 @@ export default function Home(props) {
 
 
   return (
-    <div className='home'>
+    <div className='home_js'>
       <ControlledCarousel />
       <Container>
         <h1 className='category'>Best Item</h1>

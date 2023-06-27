@@ -1,0 +1,75 @@
+@import '../common.scss';
+
+
+.carousel.slide{
+    width: 100%;
+    max-width: 1280px; 
+    margin: 0 auto;
+}
+
+
+.list_js {
+
+    img {
+        width: 100%;
+    }
+
+    .col {
+        margin-bottom: 20px;
+        padding: 0 10px;
+    }
+
+    .card {
+        overflow: hidden;
+
+        .card-title {
+            height: 2.6rem;
+            word-break: keep-all;
+            font-weight: bold;
+        }
+
+        .info {
+            padding: 5px;
+        }
+
+        .origin_price {
+            font-size: 0.8rem;
+            color: #aaa;
+            text-decoration: line-through;
+        }
+
+        .sale_price {
+            font-size: 1.2rem;
+        }
+
+        .button_list {
+            display: flex;
+            justify-content: end;
+
+            button {
+                background: none;
+                border: none;
+                color: #333;
+                font-size: 1.8rem;
+                padding: 0 10px;
+
+                svg {
+                    transition: .1s;
+                }
+
+                &:hover svg {
+                    transform: scale(1.15);
+                }
+
+                &:active {
+                    background-color: inherit;
+                    color: inherit;
+                }
+
+
+            }
+        }
+
+        //button_list
+    }
+}

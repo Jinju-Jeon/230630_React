@@ -7,8 +7,8 @@ import { faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 
 
-import './cart.scss'
-import { deleteItem } from '../data/store'
+import './page.scss'
+import { deleteItem, quantUp, quantDown, quantChange } from '../data/store'
 
 
 export default function Cart() {
@@ -17,7 +17,7 @@ export default function Cart() {
   const products = state.cart
 
   return (
-    <Container className='cart'>
+    <Container className='cart_js'>
         <Table striped bordered hover>
             <thead>
               <tr>
@@ -41,17 +41,27 @@ export default function Cart() {
                   <td>{item.salePrice.toLocaleString()}원</td>
                   <td className='item_quant'>
                     <div>
-                      <input type='number' value={item.quant}></input>
+                      <input type='number' value={item.quant} onChange={(e)=>{
+                        dispatch(quantChange({id: item.id,newValue: e.target.value}))
+                      }}></input>
                       <div>
-                        <p><FontAwesomeIcon icon={faChevronUp} /></p>
-                        <p><FontAwesomeIcon icon={faChevronDown} /></p>
+                        <button onClick={()=>{
+                          dispatch(quantUp(item.id))
+                        }}
+                        ><FontAwesomeIcon icon={faChevronUp} /></button>
+                        <button onClick={()=>{
+                          dispatch(quantDown(item.id))
+                        }}
+                        ><FontAwesomeIcon icon={faChevronDown} /></button>
                       </div>
                     </div>
                   </td>
                   <td>{(item.salePrice*item.quant).toLocaleString()}원</td>
-                  <td className='delete_btn' onClick={()=>{
+                  <td><button
+                  onClick={()=>{
                     dispatch(deleteItem(products[i]))
-                  }}>x</td>
+                  }}
+                  >x</button></td>
                 </tr>)
               })}
             </tbody>

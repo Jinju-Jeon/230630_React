@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom'
 
 
 /* my */
-import './product.scss'
+import './page.scss'
 
 
 export default function Product() {
@@ -27,7 +27,7 @@ export default function Product() {
 
   return (
     <>
-      <Container>
+      <Container className='product_js'>
         <h1 className='category'>{category}</h1>
         <ButtonGroup aria-label="Basic example">
           <Link to='diary'><Button variant="secondary" className={chk===0 ? 'on' : ''}>Diary / Planner</Button></Link>

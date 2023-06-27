@@ -10,9 +10,10 @@ import { useRef } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem } from '../data/store';
+import { Link } from 'react-router-dom';
 
 /* my */
-import './detail.scss'
+import './page.scss'
 
 
 const ButtonQt = styled.button`
@@ -27,6 +28,10 @@ const ButtonQt = styled.button`
 export default function Detail() {
   const location = useLocation();
   const item = location.state.product
+  const tempArray = location.state.array
+  const i = tempArray.findIndex((element)=>(item.id===element.id))
+  
+  const relateItem = tempArray.slice(0,4)
 
     
     /* 구매 수량/총액 관리 */
@@ -42,7 +47,6 @@ export default function Detail() {
     }
 
     /* redux */
-    const state = useSelector(state=>state)
     const dispatch = useDispatch()
     
 
@@ -62,7 +66,7 @@ export default function Detail() {
 
   return (
     <>
-    <Container className="detail">
+    <Container className="detail_js">
         <Row className='info_top'>
           <Col xs={12} md={6} lg={5} className='left'>
             <img src={item.img}></img>
@@ -190,8 +194,18 @@ export default function Detail() {
               </ul>
 
               <h6 className='col_tit'>관련 상품</h6>
-              이건 근처 아이디의 상품 보여주는 걸로? 
-              배열상에서 -2 -1 +1 +2 하고 싶은데 가능하려나
+              <div className='relate_list'>
+                  {relateItem.map((item,i)=>{
+                    return(
+                      <Link to={`/detail/${item.id}`} state={{product: item, array: tempArray}} key={i}>
+                      <img src={item.img}></img>
+                      <p className='relate_tit'>{item.name}</p>
+                      <p className='origin_price'>{item.originPrice.toLocaleString()}원</p>
+                      <p className='sale_price'>{item.salePrice.toLocaleString()}원</p>
+                      </Link>
+                      )
+                  })}
+                </div>
             </Col>
           </Row>
 
