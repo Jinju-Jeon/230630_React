@@ -50,5 +50,6 @@
   "devDependencies": {
     "sass": "^1.63.6",
     "sass-loader": "^13.3.2"
-  }
+  },
+  "homepage": "http://trinj.dothome.co.kr/react"
 }
