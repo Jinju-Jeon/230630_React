@@ -9,7 +9,7 @@ import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { useRef } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { addItem } from '../data/store';
+import { addItem, addReview } from '../data/store';
 import { Link } from 'react-router-dom';
 
 /* my */
@@ -28,10 +28,7 @@ const ButtonQt = styled.button`
 export default function Detail() {
   const location = useLocation();
   const item = location.state.product
-  const tempArray = location.state.array
-  const i = tempArray.findIndex((element)=>(item.id===element.id))
-  
-  const relateItem = tempArray.slice(0,4)
+  const state = useSelector((state)=>(state))
 
     
     /* 구매 수량/총액 관리 */
@@ -48,8 +45,20 @@ export default function Detail() {
 
     /* redux */
     const dispatch = useDispatch()
-    
 
+    /* review */
+    const [writing,setWriting] = useState('')
+    
+    
+    const tempReview = state.reviews
+    const nowReview = tempReview.filter((review)=>(review.item===item.id))
+
+    
+    /* 연관상품 */
+    const tempArray = location.state.array
+    const i = tempArray.findIndex((element)=>(item.id===element.id))
+    tempArray.slice(i,1)  
+    const relateItem = tempArray.slice(0,4)
 
     
     //li_scroll
@@ -166,25 +175,30 @@ export default function Detail() {
                 <li onClick={()=>{scroll(qna)}}>상품 문의</li>
                 <li onClick={()=>{scroll(relative)}}>관련 상품</li>
               </ul>
-
               <h6 className='col_tit'>상품 후기</h6>
+              {nowReview.map((item,i)=>{
+                return(<div key={i}>{item.reviewText}</div>)
+              })}
+              <textarea id="reviewArea" value={writing} onChange={(e)=>{setWriting(e.target.value)}} placeholder='리뷰를 작성해주세요(10자 이상)'></textarea>
+              <Button onClick={()=>{
+                //여기에 if함수 걸기(10wk 미만 시 반환 및 setwriting 없게)
+                dispatch(addReview({key: tempReview.length, item: item.id, reviewText: writing}))
+                setWriting('')
+              }}>리뷰 작성</Button>
             </Col>
 
             <Col xl={12} className='qna' ref={qna}>
-              
-            <ul className="info_bar">
+              <ul className="info_bar">
                 <li onClick={()=>{scroll(itemDetail)}}>상품 상세 정보</li>
                 <li onClick={()=>{scroll(purchaseInfo)}}>구매 정보</li>
                 <li onClick={()=>{scroll(review)}}>상품 후기</li>
                 <li onClick={()=>{scroll(qna)}}  className='on'>상품 문의</li>
                 <li onClick={()=>{scroll(relative)}}>관련 상품</li>
               </ul>
-
               <h6 className='col_tit'>상품 문의</h6>
             </Col>
 
-            <Col xl={12} className='relative' ref={relative}>
-              
+            <Col xl={12} className='relative' ref={relative}>              
             <ul className="info_bar">
                 <li onClick={()=>{scroll(itemDetail)}}>상품 상세 정보</li>
                 <li onClick={()=>{scroll(purchaseInfo)}}>구매 정보</li>

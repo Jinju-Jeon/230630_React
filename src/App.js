@@ -13,6 +13,7 @@ import Product from './pages/Product';
 import List from './components/List';
 import Detail from './pages/Detail';
 import Cart from './pages/Cart';
+import About from './pages/About';
 
 //data
 import diaryData from './data/diary';
@@ -60,7 +61,7 @@ function App() {
           <Route path='pen' element={<List sublist={pen} />}></Route>
         </Route>
         <Route path='/detail/:id' element={<Detail/>}></Route>
-        <Route path='about' element={<div>About</div>}/>
+        <Route path='about' element={<About/>}/>
         <Route path='cart' element={<Cart />}/>
       </Routes>
 

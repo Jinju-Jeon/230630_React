@@ -47,11 +47,22 @@ const cart = createSlice({
     }//reducers
 })
 
-export const {addItem, deleteItem, quantUp, quantDown, quantChange} = cart.actions
+const reviews = createSlice({
+    name: "reviews",
+    initialState: [],
+    reducers: {
+        addReview(state,action){
+            state.push(action.payload)
+        }
+    }
+})
 
+export const {addItem, deleteItem, quantUp, quantDown, quantChange} = cart.actions
+export const {addReview} = reviews.actions
 
 export default configureStore({
     reducer: {
-        cart: cart.reducer
+        cart: cart.reducer,
+        reviews: reviews.reducer
     }
 })
