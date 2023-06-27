@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Jinju-Jeon/230630_React/static/css/main.fa58e3c5.css",
+    "main.js": "/Jinju-Jeon/230630_React/static/js/main.398e2a10.js",
+    "static/js/787.a03fdbc6.chunk.js": "/Jinju-Jeon/230630_React/static/js/787.a03fdbc6.chunk.js",
+    "index.html": "/Jinju-Jeon/230630_React/index.html",
+    "main.fa58e3c5.css.map": "/Jinju-Jeon/230630_React/static/css/main.fa58e3c5.css.map",
+    "main.398e2a10.js.map": "/Jinju-Jeon/230630_React/static/js/main.398e2a10.js.map",
+    "787.a03fdbc6.chunk.js.map": "/Jinju-Jeon/230630_React/static/js/787.a03fdbc6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fa58e3c5.css",
+    "static/js/main.398e2a10.js"
+  ]
+}
