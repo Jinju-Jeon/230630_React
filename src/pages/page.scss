@@ -243,6 +243,40 @@
 
         .purchase_info{}
 
+        .review{
+            .review_list{
+                .now_review{
+                    width: 100%;
+                    display: flex;
+                    padding: 10px 0;
+                    border-bottom: 1px solid #aaa;
+                    &:last-child{border-bottom: 0px;}
+
+                    p:nth-child(1){box-sizing: border-box; padding-right: 10px;}
+                    p:nth-child(2){display: inline-block; cursor: pointer; white-space: nowrap; margin-left: auto;}
+
+                    
+                }
+            }
+
+            .review_writing{
+                margin-top: 20px;
+                h6{font-weight: bold;}
+
+                >div{
+                    display: flex;
+                    align-items: end;
+
+                    textarea{
+                        width: calc(100% - 100px); margin-right: 20px;
+                        height: 100px;
+                    }
+                    button{flex-shrink: 0; width: 80px; height: 50px; background-color:#7D5A5A; border: none;}
+                }
+            }
+        }
+
+
 
         .relative{
             .relate_list{
@@ -259,6 +293,10 @@
                 }
             }
         }
+
+
+
+
     }//info_bottom
 
 }//detail

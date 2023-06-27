@@ -9,7 +9,7 @@ import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { useRef } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { addItem, addReview } from '../data/store';
+import { addItem, addReview, removeReview } from '../data/store';
 import { Link } from 'react-router-dom';
 
 /* my */
@@ -71,6 +71,9 @@ export default function Detail() {
     const scroll = (e)=>{
       e.current.scrollIntoView()
     }
+
+    const testArray = [{id: 12, text: 'test'},{id: -1, text: ''},{},{id: -1, text: ''}]
+    console.log(testArray)
     
 
   return (
@@ -166,8 +169,7 @@ export default function Detail() {
               </ul>
             </Col>
 
-            <Col xl={12} className='review' ref={review}>
-              
+            <Col xl={12} className='review' ref={review}>              
             <ul className="info_bar">
                 <li onClick={()=>{scroll(itemDetail)}}>상품 상세 정보</li>
                 <li onClick={()=>{scroll(purchaseInfo)}}>구매 정보</li>
@@ -176,15 +178,31 @@ export default function Detail() {
                 <li onClick={()=>{scroll(relative)}}>관련 상품</li>
               </ul>
               <h6 className='col_tit'>상품 후기</h6>
+              <div className='review_list'>
               {nowReview.map((item,i)=>{
-                return(<div key={i}>{item.reviewText}</div>)
+                return(<div key={i} className='now_review'>
+                  <p>{item.reviewText}</p>
+                  <p onClick={()=>{
+                    dispatch(removeReview(item.key))
+                  }}>삭제 x</p>
+                  </div>)
               })}
-              <textarea id="reviewArea" value={writing} onChange={(e)=>{setWriting(e.target.value)}} placeholder='리뷰를 작성해주세요(10자 이상)'></textarea>
-              <Button onClick={()=>{
-                //여기에 if함수 걸기(10wk 미만 시 반환 및 setwriting 없게)
-                dispatch(addReview({key: tempReview.length, item: item.id, reviewText: writing}))
-                setWriting('')
-              }}>리뷰 작성</Button>
+              </div>
+              <div className='review_writing'>
+                <h6>리뷰 작성하기</h6>
+                <div>
+                <textarea id="reviewArea" value={writing} onChange={(e)=>{setWriting(e.target.value)}} placeholder='리뷰를 작성해주세요(10자 이상)'></textarea>
+                <Button onClick={()=>{
+                  if(writing.length<10){
+                    alert('10자 이상 작성해주세요')
+                    document.querySelector('#reviewArea').select()
+                  } else{
+                    dispatch(addReview({key: tempReview.length, item: item.id, reviewText: writing}))
+                    setWriting('')
+                  }
+                }}>작성</Button>
+                </div>
+              </div>
             </Col>
 
             <Col xl={12} className='qna' ref={qna}>
@@ -213,7 +231,7 @@ export default function Detail() {
                     return(
                       <Link to={`/detail/${item.id}`} state={{product: item, array: tempArray}} key={i}>
                       <img src={item.img}></img>
-                      <p className='relate_tit'>{item.name}</p>
+                      <p className='relate_tit'>{item.name}`</p>
                       <p className='origin_price'>{item.originPrice.toLocaleString()}원</p>
                       <p className='sale_price'>{item.salePrice.toLocaleString()}원</p>
                       </Link>

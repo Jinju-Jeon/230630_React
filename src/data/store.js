@@ -53,12 +53,16 @@ const reviews = createSlice({
     reducers: {
         addReview(state,action){
             state.push(action.payload)
+        },
+        removeReview(state,action){
+            let i = state.findIndex((item)=>(item.id===action.payload))
+            state.splice(i,1)
         }
     }
 })
 
 export const {addItem, deleteItem, quantUp, quantDown, quantChange} = cart.actions
-export const {addReview} = reviews.actions
+export const {addReview, removeReview} = reviews.actions
 
 export default configureStore({
     reducer: {
