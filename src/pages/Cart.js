@@ -30,7 +30,7 @@ export default function Cart() {
               </tr>
             </thead>
             <tbody>
-              {products.map((item,i)=>{
+              {products.length>0 ? products.map((item,i)=>{
                 return(
                 <tr key={i}>
                   <td>{i+1}</td>
@@ -63,7 +63,7 @@ export default function Cart() {
                   }}
                   >x</button></td>
                 </tr>)
-              })}
+              }) : <tr><td colSpan={6}>아직 장바구니에 상품이 없습니다.</td></tr> }
             </tbody>
         </Table>
     </Container>

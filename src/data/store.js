@@ -55,18 +55,41 @@ const reviews = createSlice({
             state.push(action.payload)
         },
         removeReview(state,action){
-            let i = state.findIndex((item)=>(item.id===action.payload))
+            let i = state.findIndex((item)=>(item.key===action.payload))
             state.splice(i,1)
         }
     }
 })
 
+const qnas = createSlice({
+    name: 'qnas',
+    initialState: [],
+
+    reducers: {
+        addQuestion(state,action){
+            state.push(action.payload)
+        },
+        removeQuestion(state,action){
+            let i = state.findIndex((item)=>(item.key===action.payload))
+            state.splice(i,1)
+        },
+        addAnswer(state,action){
+            let i = state.findIndex((item)=>(item.key===action.payload.key))
+            state[i].answer=action.payload.answer
+        }
+
+    }
+
+})
+
 export const {addItem, deleteItem, quantUp, quantDown, quantChange} = cart.actions
 export const {addReview, removeReview} = reviews.actions
+export const {addQuestion, removeQuestion, addAnswer} = qnas.actions
 
 export default configureStore({
     reducer: {
         cart: cart.reducer,
-        reviews: reviews.reducer
+        reviews: reviews.reducer,
+        qnas: qnas.reducer
     }
 })

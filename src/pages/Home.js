@@ -1,7 +1,6 @@
 import React from 'react'
 import ControlledCarousel from '../components/Carousel'
 import { Container } from 'react-bootstrap'
-import { styled } from 'styled-components'
 import _ from 'lodash'
 
 
@@ -9,6 +8,7 @@ import _ from 'lodash'
 /* my */
 import List from '../components/List'
 import './page.scss'
+
 
 
 
