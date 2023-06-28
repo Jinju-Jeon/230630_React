@@ -35,8 +35,8 @@ export default function Product() {
           <Link to='album'><Button variant="secondary" className={chk===2 ? 'on' : ''}>Album / RecordBook</Button></Link>
           <Link to='pen'><Button variant="secondary" className={chk===3 ? 'on' : ''}>Pen / PencilCase</Button></Link>
         </ButtonGroup>
+      </Container>  
       <Outlet></Outlet>
-    </Container>  
         
     </>
   )

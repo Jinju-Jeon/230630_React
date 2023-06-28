@@ -8,7 +8,9 @@
 }
 
 
+
 .list_js {
+    
 
     img {
         width: 100%;
@@ -16,16 +18,17 @@
 
     .col {
         margin-bottom: 20px;
-        padding: 0 10px;
     }
 
     .card {
         overflow: hidden;
 
         .card-title {
-            height: 2.6rem;
+            height: 2.75rem;
             word-break: keep-all;
             font-weight: bold;
+
+            overflow: hidden;
         }
 
         .info {

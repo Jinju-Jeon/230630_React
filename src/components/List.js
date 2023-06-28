@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {Row, Col, Card, Button} from 'react-bootstrap';
+import {Row, Col, Card, Button, Container} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
@@ -21,9 +21,10 @@ export default function List(props) {
     
 
   return (
-      <Row className='list_js'>
+    <Container className='list_js'>
+      <Row>
         {sublist.map((item,i,array)=>(
-          <Col xs={6} md={4} lg={3} className='col' key={i}>
+          <Col xs={6} md={3} className='col' key={i}>
             <Card>
             <Link to={`/detail/${item.id}`} state={{product: item, array: array}}>
               <img src={item.img}></img>
@@ -47,5 +48,6 @@ export default function List(props) {
           )) //map
         }
       </Row>
+    </Container>
   )
 }

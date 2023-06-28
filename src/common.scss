@@ -6,8 +6,8 @@
 }
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
-*, p, a{margin: 0; padding: 0; }
-html, button, .row{font-family: 'Noto Sans KR';color: #333;}
+*, p, a, ul{margin: 0; padding: 0; }
+html, button, .row, div{font-family: 'Noto Sans KR';color: #333;}
 body{overflow-y: scroll;}
 
 li, ul, ol, a{list-style: none; color: inherit; text-decoration: none;}
@@ -19,12 +19,15 @@ button{background: none; border: none; display: block;}
 h1{font-family: 'SUITE-Regular'; font-weight: bold;}
 
 .container{
-    max-width: 1180px;
+    max-width: 1200px;
     margin: 0 auto; padding: 0;
+
+    &.list_js{padding: 0;}
 
     .row{
         width: 100%;
         margin: 0 auto;
+        >div{padding: 0 10px;}
     }
 
 }
@@ -32,7 +35,7 @@ h1{font-family: 'SUITE-Regular'; font-weight: bold;}
 nav{
     font-family: 'SUITE-Regular';
 
-    .container{
+    .container.container{
         align-items: flex-end;
     }
 

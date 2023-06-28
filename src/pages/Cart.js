@@ -15,6 +15,10 @@ export default function Cart() {
   const state = useSelector((state)=>(state))
   const dispatch = useDispatch()
   const products = state.cart
+  let total = 0;
+  products.forEach((item)=>{
+    total+=(item.quant*item.salePrice)
+  })
 
   return (
     <Container className='cart_js'>
@@ -63,7 +67,16 @@ export default function Cart() {
                   }}
                   >x</button></td>
                 </tr>)
-              }) : <tr><td colSpan={6}>아직 장바구니에 상품이 없습니다.</td></tr> }
+              }) :
+              <tr className='no_product'>
+                <td></td>
+                <td colSpan={5}>아직 장바구니에 상품이 없습니다.</td>
+                </tr> }
+              <tr className='total'>
+                <td colSpan={4} className='total_text'>금액 총 합계</td>
+                <td colSpan={2} className='total_price'>{total.toLocaleString()}원</td>
+
+              </tr>
             </tbody>
         </Table>
     </Container>

@@ -1,6 +1,6 @@
 import React from 'react'
 import ControlledCarousel from '../components/Carousel'
-import { Container } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 import _ from 'lodash'
 
 
@@ -26,7 +26,7 @@ export default function Home(props) {
   }
 
   const bests = _.orderBy(allItem,['sales'],['desc'])
-  const best12 = bests.slice(0,12)
+  const best12 = bests.slice(0,8)
   
   
 
@@ -35,6 +35,24 @@ export default function Home(props) {
   return (
     <div className='home_js'>
       <ControlledCarousel />
+
+      <div className='event'>
+        <Container>
+        <h1>Event</h1>
+          <Row>
+            <Col xs={12} md={6}>
+              <img src={process.env.PUBLIC_URL+'/images/event1.jpg'}></img>
+            </Col>
+            <Col xs={6} md={3}>
+              <img src={process.env.PUBLIC_URL+'/images/event2.jpg'}></img>
+            </Col>
+            <Col xs={6} md={3}>
+              <img src={process.env.PUBLIC_URL+'/images/event3.jpg'}></img>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+
       <Container>
         <h1 className='category'>Best Item</h1>
         <List sublist={best12}></List>

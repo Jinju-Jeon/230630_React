@@ -74,13 +74,11 @@ export default function Detail() {
 
 
 
+
     
     /* 관련상품 */
-    const tempArray = location.state.array
-    const i = tempArray.findIndex((element)=>(item.id===element.id))
-    
-    tempArray.splice(i,1)
-    const relateItem = tempArray.slice(0,4)
+    const relateItem = location.state.array
+    const nowDetail = relateItem.findIndex((element)=>(item.id===element.id))
 
     
     //li_scroll
@@ -162,13 +160,13 @@ export default function Detail() {
             </div>{/* //buy_action */}
           </Col>
         </Row>
-        <Row className='info_bottom'>
-          <Col xl={12} className='item_detail' ref={itemDetail}>
+        <div className='info_bottom'>
+          <Row xl={12} className='item_detail' ref={itemDetail}>
               <InfoList now={1} />
             <img src={process.env.PUBLIC_URL + '/images/detail/d1.jpg'}></img>
-          </Col>
+          </Row>
 
-          <Col xl={12} className='purchase_info' ref={purchaseInfo}>
+          <Row xl={12} className='purchase_info' ref={purchaseInfo}>
             <InfoList now={2} />
 
             <ul>
@@ -189,9 +187,9 @@ export default function Detail() {
                 <li>주문취소/환불시에 상품구매로 적립된 적립금은 함께 취소됩니다.</li>
                 <li>회원 탈퇴시에는 적립금은 자동적으로 소멸됩니다.</li>
             </ul>
-          </Col>
+          </Row>
 
-          <Col xl={12} className='review' ref={review}>              
+          <Row xl={12} className='review' ref={review}>              
             <InfoList now={3} />
             <h6 className='col_tit'>상품 후기</h6>
             <div className='review_list'>
@@ -223,9 +221,9 @@ export default function Detail() {
               }}>작성</Button>
               </div>
             </div>
-          </Col>
+          </Row>
 
-          <Col xl={12} className='qna' ref={qna}>
+          <Row xl={12} className='qna' ref={qna}>
             <InfoList now={4} />
             <h6 className='col_tit'>상품 문의</h6>
 
@@ -234,7 +232,9 @@ export default function Detail() {
               return(
               <div key={i} className='now_qna'>
                 <div className='question'>
-                  <p>{item.qnaText.split('\n').map((line,k)=>
+                  <p onClick={()=>{
+                    document.getElementById('answer'+i).style.display = 'block'
+                  }}>{item.qnaText.split('\n').map((line,k)=>
                     (<span key={k}>{line}<br/></span>)
                   )}
                   </p>
@@ -243,21 +243,28 @@ export default function Detail() {
                     dispatch(removeQuestion(item.key))
                   }}> 삭제 x</p>
                 </div>
-                <div className='answer'>
-                  {item.answer!=='' ? <p className='answered'>{item.answer}</p> :
+                <div className='answer' id={'answer'+i}>
+                  {item.answer!=='' ? <p className='answered'>{
+                    item.answer.split('\n').map((line,j)=>{
+                      return(<span key={j}>{line}<br/></span>)
+                  }) //answer-답변있음
+                  }</p> :
                   <>
-                  <h6>답변 작성</h6>
-                  <div>
-                      <textarea id={item.key+'answer'} onChange={(e)=>{
-                        setAnswer(e.target.value)}
-                      }>{writingA}</textarea> 
-                      <Button onClick={()=>{
-                        dispatch(addAnswer({key: item.key, answer: writingA}))
-                        setAnswer('')
-                      }}>답변</Button>
+                    <h6>답변 작성</h6>
+                    <div>
+                        <textarea id={item.key+'answer'} onChange={(e)=>{
+                          setAnswer(e.target.value)}
+                        } value={writingA}></textarea> 
+                        <Button onClick={()=>{
+                          dispatch(addAnswer({key: item.key, answer: writingA}))
+                          setAnswer('')
+                        }}>답변</Button>
                     </div>
-                    </>
-                  }
+                  </> //answer-답변없음
+                  } 
+                  <p className='answer_close' onClick={()=>{
+                    document.getElementById('answer'+i).style.display = 'none'
+                  }}>답변 닫기▲</p>
                 </div> {/* answer */}
                 </div>)
             }) : <div>아직 문의사항이 없습니다.</div>
@@ -279,26 +286,30 @@ export default function Detail() {
               }}>작성</Button>
               </div>
             </div>
-          </Col>
+          </Row>
 
-          <Col xl={12} className='relative' ref={relative}>              
+          <Row xl={12} className='relative' ref={relative}>              
           <InfoList now={5} />
 
             <h6 className='col_tit'>관련 상품</h6>
             <div className='relate_list'>
                 {relateItem.map((item,i)=>{
-                  return(
-                    <Link to={`/detail/${item.id}`} state={{product: item, array: tempArray}} key={i}>
-                    <img src={item.img}></img>
-                    <p className='relate_tit'>{item.name}</p>
-                    <p className='origin_price'>{item.originPrice.toLocaleString()}원</p>
-                    <p className='sale_price'>{item.salePrice.toLocaleString()}원</p>
-                    </Link>
-                    )
+                  if(i==nowDetail){
+                    return 
+                  } else{
+                    return(
+                      <Link to={`/detail/${item.id}`} state={{product: item, array: relateItem}}>
+                      <img src={item.img}></img>
+                      <p className='relate_tit'>{item.name}</p>
+                      <p className='origin_price'>{item.originPrice.toLocaleString()}원</p>
+                      <p className='sale_price'>{item.salePrice.toLocaleString()}원</p>
+                      </Link>
+                      ) 
+                  }
                 })}
               </div>
-          </Col>
           </Row>
+        </div>
 
 
 
