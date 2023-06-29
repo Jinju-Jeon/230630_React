@@ -66,6 +66,7 @@ export default function Detail() {
     const tempQnas = state.qnas
     const nowQnas = tempQnas.filter((element)=>(element.item===item.id))
 
+
     let newQKey = 0
     if(tempQnas.length>0){
       newQKey = tempQnas[tempQnas.length-1].key+1
@@ -77,8 +78,10 @@ export default function Detail() {
 
     
     /* 관련상품 */
-    const relateItem = location.state.array
+    const tempItem = location.state.array
+    const relateItem = tempItem.sort(()=>Math.random()-0.5)
     const nowDetail = relateItem.findIndex((element)=>(item.id===element.id))
+    
 
     
     //li_scroll

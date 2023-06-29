@@ -39,6 +39,7 @@
 }
 
 .cart_js{
+    min-height: 80vh;
     thead{
         white-space: nowrap;
     }
@@ -248,11 +249,6 @@
             img{width: 80%; margin: 0 auto;}
         }
 
-        .now_qna{
-            border-bottom: 1px solid #aaa;
-            &:last-child{border-bottom: 0px;}
-        }
-
         .question{
             >p{cursor: pointer;}
             span{padding-left: 30px;}
@@ -269,7 +265,6 @@
             display: flex;
             padding: 30px 0;
             border-bottom: 1px solid #aaa;
-            &.question, &:last-child{border-bottom: 0px;}
             
 
             p:nth-child(1){box-sizing: border-box; padding-right: 10px;}
@@ -324,7 +319,6 @@
 
             .answer_close{
                 margin-top: 30px;
-                text-align: right;
                 cursor: pointer;
             }
         }
