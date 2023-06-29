@@ -27,7 +27,7 @@ export default function List(props) {
           <Col xs={6} md={3} className='col' key={i}>
             <Card>
             <Link to={`/detail/${item.id}`} state={{product: item, array: array}}>
-              <img src={item.img}></img>
+              <div className='img_cover'><img src={process.env.PUBLIC_URL+item.img}></img></div>
               <div className='info'>
                 <Card.Title className='name'>{item.name}</Card.Title>
                 <p className='origin_price'>{item.originPrice.toLocaleString()}원</p>

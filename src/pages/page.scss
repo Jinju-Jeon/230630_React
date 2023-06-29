@@ -14,7 +14,7 @@
 }
 
 .product_js{
-    &.container{padding: 50px 10px 0 10px}
+    &.container{padding: 80px 10px 0 10px}
     h1{font-size: 2.5rem; margin-bottom: 30px;}
 
     .btn-group{
@@ -39,21 +39,35 @@
 }
 
 .cart_js{
-    min-height: 80vh;
+    padding: 0 10px;
+    min-height: 70vh;
+
+    .cart_banner{
+        margin: 80px 0 15px;
+        font-size: 2.5rem;
+        span{font-size: 1.5rem; margin-left: 10px; color: #555;}
+    }
+
     thead{
         white-space: nowrap;
     }
 
     td{
         line-height: 100px;
+        &:nth-child(1){
+            min-width: 50px;
+        }
         &:nth-child(2){
             line-height: normal;
+        }
+        &:nth-child(3){
+            width: 6rem;
         }
         &:nth-child(4){
             width: 3rem;
         }
         &:nth-child(5){
-            width: 6rem;
+            min-width: 6rem;
         }
         &:nth-child(6){
             width: 2rem;
@@ -109,12 +123,12 @@
 
 .detail_js{
     
-    .origin_price{text-decoration: line-through; color: #F1D1D1;}
+    .origin_price{text-decoration: line-through; color: #F1D1D1; margin-bottom: -5px;}
     .sale_price{font-size: 1.8rem; font-weight: bold; }
 
     .info_top{
         padding-top: 30px;
-        margin-bottom: 10px;
+        margin-bottom: 60px;
         justify-content: center;
         >div{
             box-sizing: border-box;
@@ -124,8 +138,9 @@
         }
 
         .name{
-            font-size: 1.75rem;
-            margin-bottom: 20px;
+            h1{font-size: 1.75rem; margin-bottom: 3px;}
+            p{margin-bottom: 10px; color: #aaa;}
+
         }        
 
         .price{margin-bottom: 30px;}
@@ -345,7 +360,7 @@
                     .relate_tit{
                         font-weight: bold;
                     }
-                    .sale_price{font-size: 1rem;}
+                    .sale_price{font-size: 1.25rem;}
                 
                 }
             }
@@ -356,7 +371,10 @@
 
 
 
-
+.about_img{
+    max-width: 1180px;
+    margin: 0 auto;
+}
 .about{
     max-width: 980px;
     padding-top: 50px;
@@ -387,7 +405,15 @@
     >.container{padding: 0; }
     .row{
         flex-wrap: wrap;
-        >div{margin-bottom: 20px;}
+        >div{
+            overflow: hidden;
+            margin-bottom: 20px;
+
+            img{
+                transition: .3s ease-in-out;
+                &:hover{opacity: 0.6;}
+            }
+        }
     }
 }
 

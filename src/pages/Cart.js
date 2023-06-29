@@ -22,6 +22,7 @@ export default function Cart() {
 
   return (
     <Container className='cart_js'>
+        <h1 className='cart_banner'>Cart<span>장바구니</span></h1>      
         <Table striped bordered hover>
             <thead>
               <tr>
@@ -39,7 +40,7 @@ export default function Cart() {
                 <tr key={i}>
                   <td>{i+1}</td>
                   <td className='item_info'>
-                    <p><img src={item.img}></img></p>
+                    <p><img src={process.env.PUBLIC_URL+item.img}></img></p>
                     <p>{item.name}</p>
                   </td>
                   <td>{item.salePrice.toLocaleString()}원</td>

@@ -4,7 +4,8 @@ const notebookData = [
     name: '인덱스 롱 하이라이터 POP',
     originPrice: 4600,
     salePrice: 4140,
-    img: process.env.PUBLIC_URL+'/images/notebook/notebook_1.jpg',
+    img: '/images/notebook/notebook_1.jpg',
+    subtxt:'',
     sales: 167
     },
     {
@@ -12,7 +13,8 @@ const notebookData = [
     name: '애니멀 메모지 05-08',
     originPrice: 3500,
     salePrice: 3150,
-    img: process.env.PUBLIC_URL+'/images/notebook/notebook_2.jpg',
+    img: '/images/notebook/notebook_2.jpg',
+    subtxt:'',
     sales: 121
     },
     {
@@ -20,7 +22,8 @@ const notebookData = [
     name: '인덱스 포인트 점착 메모지',
     originPrice: 4800,
     salePrice: 4320,
-    img: process.env.PUBLIC_URL+'/images/notebook/notebook_3.jpg',
+    img: '/images/notebook/notebook_3.jpg',
+    subtxt:'',
     sales: 108
     },
     {
@@ -28,7 +31,8 @@ const notebookData = [
     name: '수베니어 B6 모눈 양장노트',
     originPrice: 10000,
     salePrice: 9000,
-    img: process.env.PUBLIC_URL+'/images/notebook/notebook_4.jpg',
+    img: '/images/notebook/notebook_4.jpg',
+    subtxt:'',
     sales: 113
     },
     {
@@ -36,7 +40,8 @@ const notebookData = [
     name: '두들 데일리 미니 노트',
     originPrice: 3800,
     salePrice: 3420,
-    img: process.env.PUBLIC_URL+'/images/notebook/notebook_5.jpg',
+    img: '/images/notebook/notebook_5.jpg',
+    subtxt:'',
     sales: 218
     },
     {
@@ -44,7 +49,8 @@ const notebookData = [
     name: '다꾸 배경 메모지',
     originPrice: 3800,
     salePrice: 3420,
-    img: process.env.PUBLIC_URL+'/images/notebook/notebook_6.jpg',
+    img: '/images/notebook/notebook_6.jpg',
+    subtxt:'',
     sales: 235
     },
     {
@@ -52,7 +58,8 @@ const notebookData = [
     name: '수베니어 B6 라인 양장노트',
     originPrice: 10000,
     salePrice: 8000,
-    img: process.env.PUBLIC_URL+'/images/notebook/notebook_7.jpg',
+    img: '/images/notebook/notebook_7.jpg',
+    subtxt:'',
     sales: 268
     },
     {
@@ -60,7 +67,8 @@ const notebookData = [
     name: '하루 A5 라인노트',
     originPrice: 2500,
     salePrice: 2250,
-    img: process.env.PUBLIC_URL+'/images/notebook/notebook_8.jpg',
+    img: '/images/notebook/notebook_8.jpg',
+    subtxt:'',
     sales: 54
     },
     {
@@ -68,7 +76,8 @@ const notebookData = [
     name: '인덱스 쇼트 하이라이터',
     originPrice: 4600,
     salePrice: 4140,
-    img: process.env.PUBLIC_URL+'/images/notebook/notebook_9.jpg',
+    img: '/images/notebook/notebook_9.jpg',
+    subtxt:'',
     sales: 132
     },
     {
@@ -76,7 +85,8 @@ const notebookData = [
     name: '인덱스 롱 하이라이터',
     originPrice: 4600,
     salePrice: 4140,
-    img: process.env.PUBLIC_URL+'/images/notebook/notebook_10.jpg',
+    img: '/images/notebook/notebook_10.jpg',
+    subtxt:'',
     sales: 296
     },
     {
@@ -84,7 +94,8 @@ const notebookData = [
     name: '피그먼트 노트',
     originPrice: 9800,
     salePrice: 6200,
-    img: process.env.PUBLIC_URL+'/images/notebook/notebook_11.jpg',
+    img: '/images/notebook/notebook_11.jpg',
+    subtxt:'',
     sales: 231
     },
     {
@@ -92,7 +103,8 @@ const notebookData = [
     name: 'B5 메리 노트패드',
     originPrice: 3500,
     salePrice: 2800,
-    img: process.env.PUBLIC_URL+'/images/notebook/notebook_12.jpg',
+    img: '/images/notebook/notebook_12.jpg',
+    subtxt:'',
     sales: 138
     },
     {
@@ -100,7 +112,8 @@ const notebookData = [
     name: 'B5 버니 노트패드',
     originPrice: 3500,
     salePrice: 2800,
-    img: process.env.PUBLIC_URL+'/images/notebook/notebook_13.jpg',
+    img: '/images/notebook/notebook_13.jpg',
+    subtxt:'',
     sales: 246
     },
     {
@@ -108,7 +121,8 @@ const notebookData = [
     name: 'A4 절취 모눈노트',
     originPrice: 4400,
     salePrice: 3080,
-    img: process.env.PUBLIC_URL+'/images/notebook/notebook_14.jpg',
+    img: '/images/notebook/notebook_14.jpg',
+    subtxt:'',
     sales: 233
     },
     {
@@ -116,7 +130,8 @@ const notebookData = [
     name: 'A4 절취 라인노트',
     originPrice: 4400,
     salePrice: 3080,
-    img: process.env.PUBLIC_URL+'/images/notebook/notebook_15.jpg',
+    img: '/images/notebook/notebook_15.jpg',
+    subtxt:'',
     sales: 116
     }
     ]

@@ -3,6 +3,10 @@ import { Container, Row, Col } from 'react-bootstrap'
 
 export default function About() {
   return (
+    <>
+    <div className='about_img'>
+      <img src={process.env.PUBLIC_URL+'/images/about.jpg'}></img>
+    </div>
     <Container className='about'>
         <div>
           <h1>ICON OF ALL YOURS</h1>
@@ -93,5 +97,6 @@ export default function About() {
           </Row>
         </div>
     </Container>
+    </>
   )
 }

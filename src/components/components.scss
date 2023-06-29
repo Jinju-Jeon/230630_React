@@ -23,13 +23,22 @@
     .card {
         overflow: hidden;
 
+        &:hover{
+            .card-title{color: #7D5A5A;}
+            img{transform: scale(1.1);}
+        }
+
         .card-title {
-            height: 2.75rem;
+            transition: 0.3s ease-in-out;
+            height: 3rem;
             word-break: keep-all;
             font-weight: bold;
 
             overflow: hidden;
         }
+
+        .img_cover{overflow: hidden;
+           img{transition: 0.3s ease-in-out;}}
 
         .info {
             padding: 5px;
@@ -37,12 +46,13 @@
 
         .origin_price {
             font-size: 0.8rem;
-            color: #aaa;
+            color: #F1D1D1;
             text-decoration: line-through;
         }
 
         .sale_price {
             font-size: 1.2rem;
+            font-weight: bold;
         }
 
         .button_list {

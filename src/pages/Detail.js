@@ -117,10 +117,13 @@ export default function Detail() {
     <Container className="detail_js">
         <Row className='info_top'>
           <Col xs={12} md={6} lg={5} className='left'>
-            <img src={item.img}></img>
+            <img src={process.env.PUBLIC_URL+item.img}></img>
           </Col>        
           <Col xs={12} md={6} lg={5} className='right'>
-            <h1 className='name'>{item.name}</h1>
+            <div className='name'>
+              <h1>{item.name}</h1>
+              <p>{item.subtxt}</p> 
+            </div>
             <div className='price'>
             <p className='origin_price'>{item.originPrice.toLocaleString()}</p>
             <p className='sale_price'>{item.salePrice.toLocaleString()}</p>
@@ -302,7 +305,7 @@ export default function Detail() {
                   } else{
                     return(
                       <Link to={`/detail/${item.id}`} state={{product: item, array: relateItem}}>
-                      <img src={item.img}></img>
+                      <img src={process.env.PUBLIC_URL+item.img}></img>
                       <p className='relate_tit'>{item.name}</p>
                       <p className='origin_price'>{item.originPrice.toLocaleString()}원</p>
                       <p className='sale_price'>{item.salePrice.toLocaleString()}원</p>

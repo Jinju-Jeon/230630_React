@@ -34,23 +34,63 @@ h1{font-family: 'SUITE-Regular'; font-weight: bold;}
 
 nav{
     font-family: 'SUITE-Regular';
-
+    background-color: #7D5A5A;
+    
     .container.container{
         align-items: flex-end;
+        max-width: 1180px;
     }
 
     .navbar-brand{
         font-size: 1.75rem;
         padding: 0; 
         cursor: pointer;
+        color: #fff;
+        &:focus{color: #fff;}
     }
 
 
     .navbar-nav{
-        a.nav-link{
+        a{
             padding: 0;
             padding-bottom: 5px;
+            color: #fff;
+            &:focus{color: #fff;}
         }
     }
+
+    .navbar-brand, a.nav-link{
+        transition: .3s;
+        &:hover{color: #F1D1D1;}
+    }
     
+}
+
+
+.topbtn{
+    position: fixed;
+    bottom: 100px; left: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 40px;
+    max-width: calc(50vw + 750px);
+
+    button{
+        width: 60px; height: 50px;
+        position: absolute; right: 10px;
+        pointer-events: initial;
+        border-color: #7D5A5A;
+        background-color: #7D5A5A;
+        color: #fff;
+        border-radius: 30px;
+        opacity: .8;
+
+        &:hover, &:first-child:active{
+            border-color: #7D5A5A;
+            background-color: #7D5A5A;
+            color: #fff;
+            opacity: 1;
+        }
+    }
+
 }
