@@ -79,8 +79,18 @@ export default function Detail() {
     
     /* 관련상품 */
     const tempItem = location.state.array
-    const relateItem = tempItem.sort(()=>Math.random()-0.5)
-    const nowDetail = relateItem.findIndex((element)=>(item.id===element.id))
+    const nowDetail = tempItem.findIndex((element)=>(item.id===element.id))
+
+    let relateItem = tempItem.slice(nowDetail+1,nowDetail+5)
+
+    const relateLength = relateItem.length
+    
+    if(relateLength<4){
+      const tempList = tempItem.slice(0,4-relateLength)
+      relateItem = relateItem.concat(tempList)
+    }
+
+    
     
 
     
@@ -300,18 +310,15 @@ export default function Detail() {
             <h6 className='col_tit'>관련 상품</h6>
             <div className='relate_list'>
                 {relateItem.map((item,i)=>{
-                  if(i==nowDetail){
-                    return 
-                  } else{
                     return(
-                      <Link to={`/detail/${item.id}`} state={{product: item, array: relateItem}}>
+                      <Link to={`/detail/${item.id}`} state={{product: item, array: tempItem}}>
                       <img src={process.env.PUBLIC_URL+item.img}></img>
                       <p className='relate_tit'>{item.name}</p>
                       <p className='origin_price'>{item.originPrice.toLocaleString()}원</p>
                       <p className='sale_price'>{item.salePrice.toLocaleString()}원</p>
                       </Link>
                       ) 
-                  }
+                  
                 })}
               </div>
           </Row>
