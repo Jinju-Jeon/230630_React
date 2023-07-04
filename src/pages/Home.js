@@ -26,7 +26,7 @@ export default function Home(props) {
   }
 
   const bests = _.orderBy(allItem,['sales'],['desc'])
-  const best12 = bests.slice(0,8)
+  const best8 = bests.slice(0,8)
   
   
 
@@ -55,7 +55,7 @@ export default function Home(props) {
 
       <Container>
         <h1 className='category'>Best Item</h1>
-        <List sublist={best12}></List>
+        <List sublist={best8}></List>
       </Container>
     </div>
   )
